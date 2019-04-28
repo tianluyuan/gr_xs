@@ -26,12 +26,11 @@ def build_orbitals(Z):
     max_e = {'s':2, 'p':6, 'd':10}
     
     stable_orbitals = [0]*len(ordering)
-    for i, orbital in enumerate(ordering):
-        stable_orbitals[i] = max_e[orbital[-1]]
-
-        filled = sum(stable_orbitals)
-        if filled > Z:
-            stable_orbitals[i] += Z-filled
+    curr = 0
+    while Z:
+        stable_orbitals[curr] = min(max_e[ordering[curr][-1]], Z)
+        Z -= stable_orbitals[curr]
+        curr += 1
 
     return Orbitals(*stable_orbitals)
             
