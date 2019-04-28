@@ -14,9 +14,9 @@ A0 = 1/(MELEC*ALPHA)
 
 
 Wavefunctions = namedtuple('Wavefunctions',
-                           'f1s f2s f2p f3s f3p f3d f4s')
+                           'f1s f2s f2p f3s f3p f4s f3d')
 Orbitals = namedtuple('Orbitals',
-                      'ne_1s ne_2s ne_2p ne_3s ne_3p ne_3d ne_4s')
+                      'ne_1s ne_2s ne_2p ne_3s ne_3p ne_4s ne_3d')
 Elements = namedtuple('Elements', 'H O Mg Si Ca Fe')
 Element = namedtuple('Element', 'orbitals wavefunctions')
 
@@ -53,7 +53,7 @@ def build_wfs(*args):
     f4s = lambda k, mu: 512/(35*np.pi)*(5*mu**4*k-10*mu**2*k**3+k**5)**2*np.exp(
         9*np.log(mu)-10*lm2k2(k,mu))
 
-    dists = [f1s, f2s, f2p, f3s, f3p, f3d, f4s]
+    dists = [f1s, f2s, f2p, f3s, f3p, f4s, f3d]
     return Wavefunctions(*[partial(f, mu=xi/A0) if xi>0 else lambda k: k*0 for f, xi in zip(dists,args)])
 
 
@@ -63,7 +63,7 @@ ELEMENTS = Elements(
     Element(build_orbitals(12), build_wfs(11.6, 3.7, 3.0, 1.1, 0, 0, 0)),
     Element(build_orbitals(14), build_wfs(13.6, 4.5, 5.0, 1.6, 1.4, 0, 0)),
     Element(build_orbitals(20), build_wfs(19.5, 6.9, 8.0, 3.2, 2.9, 1.1, 0)),
-    Element(build_orbitals(26), build_wfs(25.4, 9.3, 11.0, 4.6, 4.3, 3.7, 1.4)))
+    Element(build_orbitals(26), build_wfs(25.4, 9.3, 11.0, 4.6, 4.3, 1.4, 3.7)))
 
 
 def sigma_erest(enu):

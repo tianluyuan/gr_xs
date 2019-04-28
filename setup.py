@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='gr_xs',
-    version='0.1.0',
+    version='0.1.1',
     author='T. Yuan',
     author_email='tyuan@icecube.wisc.edu',
     description='Implementation of arxiv:1407.4415 for nu-e W-Boson resonance',
