@@ -1,5 +1,5 @@
 # gr_xs
-Implementation of arxiv:1407.4415 for nu-e W-Boson resonance with Doppler broadening.
+Implementation of [arxiv:1407.4415](https://arxiv.org/abs/1407.4415) for nu-e W-Boson resonance with Doppler broadening.
 
 Install via `pip install gr-xs`.
 
