@@ -87,6 +87,6 @@ def sigma_edopp(enu, element='O'):
 
 if __name__=='__main__':
     for e, n in zip(ELEMENTS, ELEMENTS._fields):
-        print n, sigma_edopp(ER, n)
+        print(n, sigma_edopp(ER, n))
         for fk, orbital_name in zip(e.wavefunctions, e.wavefunctions._fields):
-            print '...', orbital_name, quad(fk, 0, MELEC)
+            print('...', orbital_name, quad(fk, 0, MELEC))
