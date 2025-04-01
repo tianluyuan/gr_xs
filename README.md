@@ -64,4 +64,4 @@ Fe 0.7161027453437921
 ```
 
 Reproduces Fig. 1
-![ratios](https://github.com/tianluyuan/gr_xs/blob/master/fig/gr_xs.png?raw=true)
+![ratios](fig/gr_xs.png)
